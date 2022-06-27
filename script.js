@@ -6,6 +6,7 @@ let nomeChat = ""
 entrei()
 
 setInterval (getMensage, 3000)
+
 function getMensage(){
     let promise =  axios.get('https://mock-api.driven.com.br/api/v6/uol/messages');
     promise.then((response) => {
@@ -47,6 +48,7 @@ function getMensage(){
         lastMessage.scrollIntoView()
     })
 }
+
 function entrei(){
     nomeChat = prompt ("Seja bem vindo! Qual é o seu nome?")
     let promise = axios.post('https://mock-api.driven.com.br/api/v6/uol/participants', {name:nomeChat})
@@ -60,9 +62,11 @@ function tratarErro(){
  }
 
 setInterval(logStatus, 5000);
+
 function logStatus(){
     let promise = axios.post('https://mock-api.driven.com.br/api/v6/uol/status', {name:nomeChat});
 }
+
 function enviarMensagem(){
     let receberMensagem = document.querySelector('input');
     let promise = axios.post('https://mock-api.driven.com.br/api/v6/uol/messages', {
