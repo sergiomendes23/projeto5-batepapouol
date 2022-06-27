@@ -69,11 +69,9 @@ input{
 }
 .mensageStatus{
     width: 100vw;
-    height: 40px;
     background-color: #DCDCDC;
     margin-bottom: 5px;
-    display: flex;
-    align-items: center;
+    padding: 10px;
     font-family: Roboto;
     padding-left: 8px;
 }
@@ -91,21 +89,20 @@ input{
 }
 .mensageAll{
     width: 100vw;
-    height: 40px;
     background-color: #ffffff;
     margin-bottom: 5px;
-    display: flex;
-    align-items: center;
+    padding: 10px;
     font-family: Roboto;
     padding-left: 8px;
 }
 .mensagePrivate{
     width: 100vw;
-    height: 40px;
     background-color: #FFDEDE;
     margin-bottom: 5px;
-    display: flex;
-    align-items: center;
+    padding: 10px;
     font-family: Roboto;
     padding-left: 8px;
+}
+strong {
+    font-weight: bold;
 }

@@ -27,7 +27,7 @@ function getMensage(){
                 <div class="mensageAll">
                     <span>(${mensages[i].time})</span>
                     <span>${mensages[i].from}</span>
-                    <span> para ${mensages[i].to}:</span>
+                    <span> para <strong>${mensages[i].to}</strong>:</span>
                     <span>${mensages[i].text}</span>
                 </div>
                 `
@@ -37,7 +37,7 @@ function getMensage(){
                 <div class="mensagePrivate">
                     <span>(${mensages[i].time})</span>
                     <span>${mensages[i].from}</span>
-                    <span> reservadamente para <span class="to">${mensages[i].to}</span>:</span>
+                    <span> reservadamente para <strong>${mensages[i].to}</strong>:</span>
                     <span>${mensages[i].text}</span>
                 </div>
                 `
@@ -48,11 +48,17 @@ function getMensage(){
     })
 }
 function entrei(){
-    nomeChat = prompt ("Seja bem vindo! Qual é o seu?")
+    nomeChat = prompt ("Seja bem vindo! Qual é o seu nome?")
     let promise = axios.post('https://mock-api.driven.com.br/api/v6/uol/participants', {name:nomeChat})
     promise.then(getMensage())
-    promise.catch()
+    promise.catch(tratarErro)
 }
+
+function tratarErro(){
+    alert ("Este nome de usuário já existe, tente outro.");
+    entrei();
+ }
+
 setInterval(logStatus, 5000);
 function logStatus(){
     let promise = axios.post('https://mock-api.driven.com.br/api/v6/uol/status', {name:nomeChat});
@@ -70,5 +76,4 @@ function enviarMensagem(){
         getMensage()
     })
     promise.catch((error) => window.location.reload())
-
 }
